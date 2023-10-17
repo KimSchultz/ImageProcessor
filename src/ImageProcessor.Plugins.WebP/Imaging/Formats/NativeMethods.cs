@@ -28,7 +28,20 @@ namespace ImageProcessor.Plugins.WebP.Imaging.Formats
         static NativeMethods()
         {
             string folder = ImageProcessorBootstrapper.Instance.NativeBinaryFactory.Is64BitEnvironment ? "x64" : "x86";
-            string name = string.Format("ImageProcessor.Plugins.WebP.Resources.Unmanaged.{0}.libwebp.dll", folder);
+            string name = string.Format("ImageProcessor.Plugins.WebP.Resources.Unmanaged.{0}.libsharpyuv.dll", folder);
+            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(name))
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    if (stream != null)
+                    {
+                        stream.CopyTo(memoryStream);
+                        ImageProcessorBootstrapper.Instance.NativeBinaryFactory.RegisterNativeBinary("libsharpyuv.dll", memoryStream.ToArray());
+                    }
+                }
+            }
+            folder = ImageProcessorBootstrapper.Instance.NativeBinaryFactory.Is64BitEnvironment ? "x64" : "x86";
+            name = string.Format("ImageProcessor.Plugins.WebP.Resources.Unmanaged.{0}.libwebp.dll", folder);
             using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(name))
             {
                 using (var memoryStream = new MemoryStream())

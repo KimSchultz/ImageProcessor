@@ -8,6 +8,8 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System.Runtime.InteropServices;
+
 namespace ImageProcessor.Configuration
 {
     using System;
@@ -134,6 +136,7 @@ namespace ImageProcessor.Configuration
 
                     if (pointer == IntPtr.Zero)
                     {
+                        Marshal.GetLastWin32Error();
                         throw new ApplicationException("Cannot load " + b);
                     }
 

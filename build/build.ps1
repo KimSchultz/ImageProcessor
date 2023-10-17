@@ -1,5 +1,5 @@
 $buildNumber = "$env:APPVEYOR_BUILD_NUMBER".Trim().PadLeft(5, "0");
-$buildPath = Resolve-Path ".";
+$buildPath = Resolve-Path "C:\Projects\ImageProcessor";
 $binPath = Join-Path $buildPath "build\_BuildOutput";
 $testsPath = Join-Path $buildPath "tests";
 $nuspecsPath = Join-Path $buildPath "build\nuspecs";
