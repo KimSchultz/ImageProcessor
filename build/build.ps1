@@ -26,7 +26,7 @@ $imageProcessorPluginsCair = @{
 
 $imageProcessorPluginsWebP = @{
     name    = "ImageProcessor.Plugins.WebP"
-    version = "1.3.0"
+    version = "1.4.0"
     folder  = Join-Path $buildPath "src\ImageProcessor.Plugins.WebP"
     output  = Join-Path $binPath "ImageProcessor.Plugins.WebP\lib\net452"
     csproj  = "ImageProcessor.Plugins.WebP.csproj"
@@ -106,7 +106,7 @@ function Update-AssemblyInfo ([string]$file, [string]$version) {
 }
 
 # Restore all packages, loop through our projects, patch, build, and pack.
-Invoke-Expression "nuget restore $(Join-Path $buildPath "ImageProcessor.sln")"
+Invoke-Expression ".\nuget.exe restore $(Join-Path $buildPath "ImageProcessor.sln")"
 
 # Patch and Build
 Write-Host "Building Projects" -ForegroundColor Magenta;
@@ -140,7 +140,7 @@ foreach ($testProject in $testProjects) {
 Write-Host "Packing Artifacts" -ForegroundColor Magenta;
 foreach ($project in $projects) {
 
-    $packCommand = "nuget pack $($project.nuspec) -OutputDirectory $($nugetOutput) -Version $($project.version)";
+    $packCommand = ".\nuget.exe pack $($project.nuspec) -OutputDirectory $($nugetOutput) -Version $($project.version)";
     Write-Host $packCommand -ForegroundColor Yellow;
     Invoke-Expression $packCommand;
 }

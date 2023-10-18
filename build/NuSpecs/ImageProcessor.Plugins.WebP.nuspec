@@ -2,20 +2,20 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>ImageProcessor.Plugins.WebP</id>
-    <version>$version$</version>
+    <version>1.4.0</version>
     <title>ImageProcessor.Plugins.WebP</title>
-    <authors>James Jackson-South</authors>
+    <authors>Kim Tækker Schultz</authors>
     <owners>James Jackson-South</owners>
     <projectUrl>http://imageprocessor.org</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/JimBobSquarePants/ImageProcessor/develop/build/icons/imageprocessor-logo-128.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
-      Adds support to ImageProcessor for the WebP image format.
+		Updated to libwebp version 1.3.2
 
-      If you use ImageProcessor please get in touch via my twitter @james_m_south
+		Adds support to ImageProcessor for the WebP image format.
 
-      Feedback is always welcome
-    </description>
+		Kim has updated this package on top of the work of James. If you need any support contact Kim Schultz at https://www.linkedin.com/in/kimschultz91/
+	</description>
     <summary>Adds support to ImageProcessor and ImageProcessor.Web for the WebP image format.</summary>
     <releaseNotes />
     <copyright>James Jackson-South</copyright>
